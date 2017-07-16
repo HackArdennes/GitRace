@@ -120,7 +120,7 @@ function setCommitTeamFromGithub($username, $branch, $team) {
     Find the minimum and the maximum commit number
 */
 
-function findMinmaxCommit($team) {
+function findMinMaxCommit($team) {
     $min = null;
     $max = null;
 
@@ -138,13 +138,15 @@ function findMinmaxCommit($team) {
 */
 
 function computeRace($team) {
-    list($min, $max) = findMinmaxCommit($team);
+    list($min, $max) = findMinMaxCommit($team);
 
     foreach ($team as $member) {
         // Compute length of the race
         $distance = $max - $min;
         $scale = 100 / $distance;
         $length = round( ($member['commit'] - $min) * $scale );
+        
+        //$length = $member['commit'] / $max * 100;
 
         echo $member['name'] . " " . $member['project'] . " => " . $member['commit'] . " == " . $length;
         echo "\n";
@@ -153,9 +155,9 @@ function computeRace($team) {
 }
 
 
-/*
-// Example:
 
+// Example:
+/*
 $team = createTeamFromCSV("team.csv");
 //$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
 

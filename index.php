@@ -16,10 +16,10 @@
             </section>
             <section class="gg-race">
                 <div class="gg-racer" style="width: 100%;"></div>
-                <div class="gg-racer" style="width: 80%;"></div>
-                <div class="gg-racer" style="width: 60%;"></div>
-                <div class="gg-racer" style="width: 40%;"></div>
-                <div class="gg-racer" style="width: 20%;"></div>
+                <div class="gg-racer" style="width: 25%;"></div>
+                <div class="gg-racer" style="width: 8%;"></div>
+                <div class="gg-racer" style="width: 17%;"></div>
+                <div class="gg-racer" style="width: 25%;"></div>
                 <div class="gg-racer" style="width: 0%;"></div>
             </section>
             <section class="gg-mountain"></section>
