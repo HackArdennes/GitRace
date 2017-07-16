@@ -99,13 +99,11 @@ function displayCommitTeam($username, $team) {
     Set commit number from the Github into team array
 */
 
-function setCommitTeamFromGithub($username, $team) {
-    $branch = "master";
-
+function setCommitTeamFromGithub($username, $branch, $team) {
     $teamTmp = array();
 
     foreach ($team as $member) {
-        $commit = getGithubCommit($username, $member['project'],  $branch);
+        $commit = getGithubCommit($username, $member['project'], $branch);
         
         $memberTmp = array (
                 "name" => $member['name'],
