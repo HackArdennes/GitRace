@@ -14,7 +14,8 @@
                 $username = "Nekrofage";
                 $today = date("Y-m-d");
 
-                list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $team);
+                // Uncomment the following line for production
+                //list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $team);
 
             ?>
             <header>

@@ -176,6 +176,7 @@ function getCommitStat($username, $team) {
     return array($commitAll, $commitDay, $commitTeam, $commitHour);
 }
 
+
 /*
     Compute the race
 */
