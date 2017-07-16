@@ -86,9 +86,9 @@ function getGithubCommit($username, $repository, $branch) {
     Display commit number for each team
 */
 
-function displayCommitTeam($username, $team) {
+function displayCommitTeam($username, $branch, $team) {
     foreach ($team as $member) {
-        echo $member['name'] . " " . $member['project'] . " " . getGithubCommit($username, $member['project'],  "master") . "\n";
+        echo $member['name'] . " " . $member['project'] . " " . getGithubCommit($username, $member['project'], $branch) . "\n";
         echo "--------------------\n";
     }
  
