@@ -16,18 +16,19 @@
             </section>
             <section class="gg-race">
                 <?php
-                include("gitgamelib.php");
-                $team = createTeamFromCSV("team.csv");
+                    include("gitgamelib.php");
+                    $team = createTeamFromCSV("team.csv");
 
-                //$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
+                    //$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
+                    
+                    list($min, $max) = findMinMaxCommit($team);
 
-                list($min, $max) = findMinMaxCommit($team);
-
-                foreach ($team as $member) {
-                    $length = $member['commit'] / $max * 100;
-
-                    echo "<div class=\"gg-racer\" style=\"width: " . $length . "%;\"></div>\n";
-                }  
+                    foreach ($team as $member) {
+                        $length = $member['commit'] / $max * 100;
+                ?>
+                    <div class="gg-racer" style="width: <?= $length ?>%"></div>
+                <?php
+                    }  
                 ?>
             </section>
             <section class="gg-mountain"></section>
