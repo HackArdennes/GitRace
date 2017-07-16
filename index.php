@@ -14,7 +14,7 @@
                 $username = "Nekrofage";
                 $today = date("Y-m-d");
 
-                list($commitAll, $commitDay, $commitTeam) = getCommitStat($username, $team);
+                list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $team);
 
             ?>
             <header>
@@ -30,20 +30,20 @@
                 </div>
                 <div class="gg-stat">
                     <p>
-                        XXX<br />
-                        <span>commits/heure</span>
+                        <?= $commitHour ?><br />
+                        <span>Commits/Heure</span>
                     </p>
                 </div>
                 <div class="gg-stat">
                     <p>
                         <?= $commitDay ?><br />
-                        <span>commits/jour</span>
+                        <span>Commits/Jour</span>
                     </p>
                 </div>
                 <div class="gg-stat">
                     <p>
                         <?= $commitTeam ?><br />
-                        <span>commits/équipe</span>
+                        <span>Commits/Equipe</span>
                     </p>
                 </div>
             </section>

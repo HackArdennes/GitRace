@@ -146,12 +146,17 @@ function getCommitStat($username, $team) {
 
     $today = date("Y-m-d");
 
+    $commitArr = array_fill(0, 24, 0);
+    $commitHour = 0;
     $commitAll = 0;
     $commitDay = 0;
 
     foreach ($team as $member) {
         $commits = $client->api('repo')->commits()->all($username, $member['project'], array('sha' => "master"));
         foreach($commits as $commit) {
+            // Hour
+            $commitArr[intval(substr($commit["commit"]["committer"]["date"], 11, 2))] += 1;
+
             // All
             $commitAll++;
 
@@ -162,11 +167,14 @@ function getCommitStat($username, $team) {
         }
     }
 
+    // Team
     $commitTeam = ceil($commitAll / count($team));
 
-    return array($commitAll, $commitDay, $commitTeam);
-}
+    // Hour
+    $commitHour = ceil($commitAll / count(array_filter($commitArr)));
 
+    return array($commitAll, $commitDay, $commitTeam, $commitHour);
+}
 
 /*
     Compute the race
