@@ -26,11 +26,18 @@
                     foreach ($team as $member) {
                         $length = $member['commit'] / $max * 100;
                 ?>
-                    <div class="gg-racer" style="width: <?= $length ?>%"></div>
+                    <div class="gg-racer" style="width: <?= $length ?>%">
+                        <div class="gg-racer-info">
+                            <p>
+                                <?= $member['name'] ?><br />
+                                <span><?= $member['commit'] ?> commits</span>
+                            </p>
+                        </div>
+                    </div>
                 <?php
                     }  
                 ?>
             </section>
-            <section class="gg-mountain"></section>
+            <!--<section class="gg-mountain"></section>-->
         </body>
     </html>
