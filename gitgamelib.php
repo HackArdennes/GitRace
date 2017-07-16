@@ -4,48 +4,6 @@
 */
 
 /*
-    Initialize the team array
-*/
-
-function initializeTeam() {
-    return $team = array(
-        array (
-                "name" => "ILArd",
-                "project" => "PortableQemu",
-                "commit" => 160,
-            ),
-        array (
-                "name" => "HackLab",
-                "project" => "customentity",
-                "commit" => 70,
-            ),
-        array (
-                "name" => "HackArdenne",
-                "project" => "Gandi-API-scripts",
-                "commit" => 50,
-            ),
-        array (
-                "name" => "iMaugis",
-                "project" => "wield3d",
-                "commit" => 60,
-            ),
-        array (
-                "name" => "FramboisePi",
-                "project" => "requesthttpapi",
-                "commit" => 70,
-            ),
-        array (
-                "name" => "Serveur2Jeu",
-                "project" => "GitGame",
-                "commit" => 40,
-            ),
-
-    );
-
-}
-
-
-/*
     Create teams from csv file
 */
 
