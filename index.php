@@ -12,7 +12,30 @@
                 <div class="gg-title"></div>
             </header>
             <section class="gg-statistics">
-                <!-- To do... -->
+                <div class="gg-stat">
+                    <p>
+                        366<br />
+                        <span>Commits</span>
+                    </p>
+                </div>
+                <div class="gg-stat">
+                    <p>
+                        5<br />
+                        <span>commits/heure</span>
+                    </p>
+                </div>
+                <div class="gg-stat">
+                    <p>
+                        122<br />
+                        <span>commits/jour</span>
+                    </p>
+                </div>
+                <div class="gg-stat">
+                    <p>
+                        61<br />
+                        <span>commits/équipe</span>
+                    </p>
+                </div>
             </section>
             <section class="gg-race">
                 <?php
