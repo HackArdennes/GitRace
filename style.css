@@ -89,9 +89,9 @@ body {
 
 .gg-title {
     margin: 0 auto;
-    height: 207px; width: 800px;
+    height: 120px; width: 464px;
     background: url('img/title.png') no-repeat 0 0;
-    background-size: 800px 207px;
+    background-size: 464px 120px;
 }
 
 .gg-race {
