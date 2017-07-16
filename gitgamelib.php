@@ -127,8 +127,10 @@ function findMinMaxCommit($team) {
     foreach ($team as $member) {
         $minmax[] = $member['commit']; 
     }
+
     $min = min($minmax);
     $max = max($minmax);
+
     return array($min, $max);
 }
 
@@ -144,10 +146,8 @@ function getCommitStat($username, $team) {
 
     $today = date("Y-m-d");
 
-
     $commitAll = 0;
     $commitDay = 0;
-
 
     foreach ($team as $member) {
         $commits = $client->api('repo')->commits()->all($username, $member['project'], array('sha' => "master"));
