@@ -1,6 +1,6 @@
 ILArd;PortableQemu;160
-HackLab;customentity;70
+HackLab;customentity;80
 HackArdenne;Gandi-API-scripts;50
-iMaugis;wield3d;60
-FramboisePi;requesthttpapi;70
-Serveur2Jeu;GitGame;40
+iMaugis;wield3d;120
+FramboisePi;requesthttpapi;40
+Serveur2Jeu;GitGame;100

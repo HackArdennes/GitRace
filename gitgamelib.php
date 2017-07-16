@@ -142,11 +142,7 @@ function computeRace($team) {
 
     foreach ($team as $member) {
         // Compute length of the race
-        $distance = $max - $min;
-        $scale = 100 / $distance;
-        $length = round( ($member['commit'] - $min) * $scale );
-        
-        //$length = $member['commit'] / $max * 100;
+        $length = $member['commit'] / $max * 100;
 
         echo $member['name'] . " " . $member['project'] . " => " . $member['commit'] . " == " . $length;
         echo "\n";
@@ -159,7 +155,7 @@ function computeRace($team) {
 // Example:
 /*
 $team = createTeamFromCSV("team.csv");
-//$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
+$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
 
 computeRace($team) ;
 */

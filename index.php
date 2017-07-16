@@ -15,12 +15,20 @@
                 <!-- To do... -->
             </section>
             <section class="gg-race">
-                <div class="gg-racer" style="width: 100%;"></div>
-                <div class="gg-racer" style="width: 25%;"></div>
-                <div class="gg-racer" style="width: 8%;"></div>
-                <div class="gg-racer" style="width: 17%;"></div>
-                <div class="gg-racer" style="width: 25%;"></div>
-                <div class="gg-racer" style="width: 0%;"></div>
+                <?php
+                include("gitgamelib.php");
+                $team = createTeamFromCSV("team.csv");
+
+                //$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
+
+                list($min, $max) = findMinMaxCommit($team);
+
+                foreach ($team as $member) {
+                    $length = $member['commit'] / $max * 100;
+
+                    echo "<div class=\"gg-racer\" style=\"width: " . $length . "%;\"></div>\n";
+                }  
+                ?>
             </section>
             <section class="gg-mountain"></section>
         </body>

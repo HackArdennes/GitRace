@@ -107,6 +107,7 @@ body {
 .gg-racer:nth-child(5) {background-color: #ff4600; color: #ff4600;}
 .gg-racer:nth-child(6) {background-color: #c60000; color: #c60000;}
 
+/*
 .gg-racer::before {
     content: "";
     position: absolute;
@@ -116,7 +117,7 @@ body {
     height: 10px; width: 150px;
     background-color: inherit;
 }
-
+*/
 .gg-racer::after {
     content: "\f197";
     position: absolute;
