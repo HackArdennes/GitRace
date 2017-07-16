@@ -148,6 +148,7 @@ function getCommitStat($username, $team) {
     $commitAll = 0;
     $commitDay = 0;
 
+
     foreach ($team as $member) {
         $commits = $client->api('repo')->commits()->all($username, $member['project'], array('sha' => "master"));
         foreach($commits as $commit) {
@@ -161,7 +162,9 @@ function getCommitStat($username, $team) {
         }
     }
 
-    return array($commitAll, $commitDay);
+    $commitTeam = ceil($commitAll / count($team));
+
+    return array($commitAll, $commitDay, $commitTeam);
 }
 
 
