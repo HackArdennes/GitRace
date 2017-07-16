@@ -150,14 +150,4 @@ function computeRace($team) {
     }
 }
 
-
-
-// Example:
-/*
-$team = createTeamFromCSV("team.csv");
-$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
-
-computeRace($team) ;
-*/
-
 ?>
