@@ -134,6 +134,38 @@ function findMinMaxCommit($team) {
 
 
 /*
+    Get commit statistic
+*/
+
+function getCommitStat($username, $team) {
+    require_once 'vendor/autoload.php';
+
+    $client = new \Github\Client();
+
+    $today = date("Y-m-d");
+
+
+    $commitAll = 0;
+    $commitDay = 0;
+
+    foreach ($team as $member) {
+        $commits = $client->api('repo')->commits()->all($username, $member['project'], array('sha' => "master"));
+        foreach($commits as $commit) {
+            // All
+            $commitAll++;
+
+            // Day
+            if (substr($commit["commit"]["committer"]["date"], 0, 10) == $today) {
+                $commitDay++;
+            }
+        }
+    }
+
+    return array($commitAll, $commitDay);
+}
+
+
+/*
     Compute the race
 */
 

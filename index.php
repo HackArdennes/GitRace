@@ -7,6 +7,15 @@
             <title>Hack::Ardennes - GIT GAME</title>
         </head>
         <body>
+            <?php
+                include("gitgamelib.php");
+                $team = createTeamFromCSV("team.csv");
+
+                $username = "Nekrofage";
+                $today = date("Y-m-d");
+
+                list($commitAll, $commitDay) = getCommitStat($username, $team);
+            ?>
             <header>
                 <div class="gg-logo"></div>
                 <div class="gg-title"></div>
@@ -14,35 +23,33 @@
             <section class="gg-statistics">
                 <div class="gg-stat">
                     <p>
-                        366<br />
+                        <?= $commitAll ?><br />
                         <span>Commits</span>
                     </p>
                 </div>
                 <div class="gg-stat">
                     <p>
-                        5<br />
+                        XXX<br />
                         <span>commits/heure</span>
                     </p>
                 </div>
                 <div class="gg-stat">
                     <p>
-                        122<br />
+                        <?= $commitDay ?><br />
                         <span>commits/jour</span>
                     </p>
                 </div>
                 <div class="gg-stat">
                     <p>
-                        61<br />
+                        XXX<br />
                         <span>commits/équipe</span>
                     </p>
                 </div>
             </section>
             <section class="gg-race">
                 <?php
-                    include("gitgamelib.php");
-                    $team = createTeamFromCSV("team.csv");
-
-                    //$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
+                    // Uncomment the following line for production
+                    //$team = setCommitTeamFromGithub($username, $team);
                     
                     list($min, $max) = findMinMaxCommit($team);
 
