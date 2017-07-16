@@ -46,6 +46,29 @@ function initializeTeam() {
 
 
 /*
+    Create teams from csv file
+*/
+
+function createTeamFromCSV($teamCSV) {
+    
+    $team = array();
+
+    if (($handle = fopen($teamCSV, "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+            $member = array(
+                    'name' => $data[0],
+                    'project' => $data[1],
+                    'commit' => $data[2],
+                );
+
+            array_push($team, $member);        
+        }
+        fclose($handle);
+    }
+    return $team;
+}
+
+/*
     Display team array in debug mode
 */
 
@@ -176,9 +199,12 @@ function computeRace($team) {
     }
 }
 
+
 /*
-$team = initializeTeam();
-$team = setCommitTeamFromGithub("Nekrofage", $team);
+// Example:
+
+$team = createTeamFromCSV("team.csv");
+//$team = setCommitTeamFromGithub("Nekrofage", $team); // Uncomment for production
 
 computeRace($team) ;
 */
