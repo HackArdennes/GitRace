@@ -61,14 +61,6 @@ body {
 }
 
 @font-face {
-    font-family: 'reckoner_boldcondensed_bold';
-    src: url('fonts/reckoner_bold-webfont.woff2') format('woff2'),
-         url('fonts/reckoner_bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'open_sansbold';
     src: url('fonts/opensans-bold-webfont.woff2') format('woff2'),
          url('fonts/opensans-bold-webfont.woff') format('woff');
@@ -195,20 +187,22 @@ body {
 	padding: 5px;
 	transform: translateX(-100%) translateY(-50%);
 	height: 50px;
-	width: 100px;
+	width: 120px;
 	background-color: inherit;
 	border-radius: 5px;
 	box-sizing: border-box;
 }
 
 .gg-racer-info > p {
-	font-family: "reckoner_boldcondensed_bold", sans-serif;
-	font-size: 18px;
+	font-family: "open_sansbold", sans-serif;
+	font-size: 14px;
 	color: #FFFFFF;
 	text-align: center;
-	line-height: 1.1em;
+	line-height: 1.3em;
+	font-weight: 700;
 }
 
-.gg-race-info > p > span {
-	
+.gg-racer-info > p > span {
+	font-size: 12px;
+	font-weight: 400;
 }
