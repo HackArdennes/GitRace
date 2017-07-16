@@ -7,7 +7,7 @@
     Initialize the team array
 */
 
-function initTeam() {
+function initializeTeam() {
     return $team = array(
         array (
                 "name" => "ILArd",
@@ -177,7 +177,7 @@ function computeRace($team) {
 }
 
 /*
-$team = initTeam();
+$team = initializeTeam();
 $team = setCommitTeamFromGithub("Nekrofage", $team);
 
 computeRace($team) ;
