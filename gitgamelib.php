@@ -71,10 +71,11 @@ function sortArrayByName($array) {
     Get the commit number by username, repository and branch
 */
 
-function getGithubCommit($username, $repository, $branch) {
+function getGithubCommit($username, $password, $repository, $branch) {
     require_once 'vendor/autoload.php';
 
     $client = new \Github\Client();
+    $client->authenticate($usernameOrToken, $password, Github\Client::AUTH_HTTP_PASSWORD);
 
     $commits = $client->api('repo')->commits()->all($username, $repository, array('sha' => $branch));
 
@@ -139,10 +140,11 @@ function findMinMaxCommit($team) {
     Get commit statistic
 */
 
-function getCommitStat($username, $team) {
+function getCommitStat($username, $password, $team) {
     require_once 'vendor/autoload.php';
 
     $client = new \Github\Client();
+    $client->authenticate($usernameOrToken, $password, Github\Client::AUTH_HTTP_PASSWORD);
 
     $today = date("Y-m-d");
 

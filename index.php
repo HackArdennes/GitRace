@@ -12,10 +12,11 @@
                 $team = createTeamFromCSV("team.csv");
 
                 $username = "Nekrofage";
+                $password = "mot2passe";
                 $today = date("Y-m-d");
 
                 // Uncomment the following line for production
-                //list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $team);
+                //list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $password, $team);
 
             ?>
             <header>
@@ -51,7 +52,7 @@
             <section class="gg-race">
                 <?php
                     // Uncomment the following line for production
-                    //$team = setCommitTeamFromGithub($username, $team);
+                    //$team = setCommitTeamFromGithub($username, $password, $team);
                     
                     list($min, $max) = findMinMaxCommit($team);
 
