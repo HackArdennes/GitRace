@@ -8,7 +8,7 @@
         </head>
         <body>
             <?php
-                include("gitgamelib.php");
+                include("gitracelib.php");
                 $team = createTeamFromCSV("team.csv");
 
                 $username = "Nekrofage";
