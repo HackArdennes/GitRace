@@ -7,11 +7,11 @@
     Create teams from csv file
 */
 
-function createTeamFromCSV($teamCSV) {
-    
+function getTeamFromFile() {
+    $file = "team.csv";
     $team = array();
 
-    if (($handle = fopen($teamCSV, "r")) !== FALSE) {
+    if (($handle = fopen($file, "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
             $member = array(
                     'name' => $data[0],
@@ -23,6 +23,7 @@ function createTeamFromCSV($teamCSV) {
         }
         fclose($handle);
     }
+
     return $team;
 }
 
@@ -59,7 +60,7 @@ function sortArrayByCommit($array) {
 */
 
 function sortArrayByName($array) {
-        usort($team, function($a, $b) {
+        usort($array, function($a, $b) {
             return strcmp($a["name"], $b["name"]);
         });
 
@@ -97,10 +98,10 @@ function displayCommitTeam($username, $password, $branch, $team) {
 
 
 /*
-    Set commit number from the Github into team array
+    Get commit number from the Github into team array
 */
 
-function setCommitTeamFromGithub($username, $password, $team, $branch) {
+function getCommitTeamFromGithub($username, $password, $team, $branch) {
     $teamTmp = array();
 
     foreach ($team as $member) {
@@ -113,7 +114,20 @@ function setCommitTeamFromGithub($username, $password, $team, $branch) {
 
         array_push($teamTmp, $memberTmp);
     }
+
+
     return $teamTmp;
+}
+
+
+function setCommitTeamToFile($team){
+    $file = "team.csv";
+    unlink($file);
+    foreach ($team as $member) {
+        $line = $member['name'] . ";" . $member['project'] . ";" . $member['commit'] . "\r\n";
+        file_put_contents($file, $line, FILE_APPEND | LOCK_EX);
+    }
+    
 }
 
 
@@ -140,7 +154,7 @@ function findMinMaxCommit($team) {
     Get commit statistic
 */
 
-function getCommitStat($usernameOrToken, $password, $team) {
+function getCommitStatFromGithub($usernameOrToken, $password, $team) {
     require_once 'vendor/autoload.php';
 
     $client = new \Github\Client();
@@ -176,6 +190,29 @@ function getCommitStat($usernameOrToken, $password, $team) {
     $commitHour = ceil($commitAll / count(array_filter($commitArr)));
 
     return array($commitAll, $commitDay, $commitTeam, $commitHour);
+}
+
+
+/*
+
+*/
+
+function getCommitStatFromFile() {
+    $file = "commitstat.csv";
+    $f = fopen($file, 'r');
+    $line = fgets($f);
+    fclose($f);
+    return $line;
+}
+
+
+/*
+
+*/
+
+function setCommitStatToFile($commitAll, $commitDay, $commitTeam, $commitHour) {
+    $file = "commitstat.csv";
+    file_put_contents($file, "$commitAll;$commitDay;$commitTeam;$commitHour");
 }
 
 

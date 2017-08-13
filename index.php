@@ -12,16 +12,23 @@
 
                 $prod = true;
                 $branch = "master";
+                $deadline = "20170827170000";
+                $currentdatetime = date("YmdHis");
 
-                $team = createTeamFromCSV("team.csv");
+                $team = getTeamFromFile("team.csv");
 
                 $username = "Nekrofage";
                 $password = "";
-                $today = date("Y-m-d");
 
                 // Production
-                if($prod == true)
-                    list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $password, $team);
+                if($prod == true) {
+                    if ($currentdatetime < $deadline) {
+                        list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStatFromGithub($username, $password, $team);
+                        setCommitStatToFile($commitAll, $commitDay, $commitTeam, $commitHour);
+                    } else {
+                        list($commitAll, $commitDay, $commitTeam, $commitHour) = explode(";", getCommitStatFromFile());
+                    }
+                }
             ?>
             <header>
                 <div class="gg-logo"></div>
@@ -56,9 +63,17 @@
             <section class="gg-race">
                 <?php
                     // Production
-                    if($prod == true)
-                        $team = setCommitTeamFromGithub($username, $password, $team, $branch);
-                    
+                    if($prod == true) {
+                        if ($currentdatetime < $deadline) {
+                            $team = getCommitTeamFromGithub($username, $password, $team, $branch);
+                            setCommitTeamToFile($team);
+                        } else {
+                            $team = getTeamFromFile();
+                        }
+                    }
+
+                    $team = sortArrayByName($team);
+
                     list($min, $max) = findMinMaxCommit($team);
 
                     foreach ($team as $member) {
