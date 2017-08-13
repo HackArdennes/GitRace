@@ -111,11 +111,16 @@ class ComposerStaticInit99189535e8aed9fb7b777a6b791820b7
         ),
     );
 
+    public static $classMap = array (
+        'TwitterAPIExchange' => __DIR__ . '/..' . '/j7mbo/twitter-api-php/TwitterAPIExchange.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit99189535e8aed9fb7b777a6b791820b7::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit99189535e8aed9fb7b777a6b791820b7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit99189535e8aed9fb7b777a6b791820b7::$classMap;
 
         }, null, ClassLoader::class);
     }

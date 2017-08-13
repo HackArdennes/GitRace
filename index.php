@@ -74,6 +74,7 @@
 
                     list($min, $max) = findMinMaxCommit($team);
 
+
                     foreach ($team as $member) {
                         $length = $member['commit'] / $max * 100;
                 ?>
@@ -87,6 +88,8 @@
                     </div>
                 <?php
                     }  
+                    $message = "#Hackardennes #Hackathon2018 #CabaretVert #GitRace";
+                    sendTweet($message);
                 ?>
             </section>
             <!--<section class="gg-mountain"></section>-->

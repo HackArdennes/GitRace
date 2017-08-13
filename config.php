@@ -1,7 +1,15 @@
 <?php
 
-/* Credential */
-$username = "Nekrofage";
+/* Credentials */
+/* Github */
+$username = "";
 $password = "";
 
+/* Twitter */
+$settings = array(
+    'oauth_access_token' => "",
+    'oauth_access_token_secret' => "",
+    'consumer_key' => "",
+    'consumer_secret' => ""
+);
 ?>

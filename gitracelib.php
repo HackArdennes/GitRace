@@ -233,4 +233,23 @@ function computeRace($team) {
     }
 }
 
+
+function sendTweet($message) {
+    require_once 'vendor/j7mbo/twitter-api-php/TwitterAPIExchange.php';
+    include 'config.php';
+
+    $url = "https://api.twitter.com/1.1/statuses/update.json";
+
+    $requestMethod = 'POST';
+
+    $postfields = array(
+        'status' => $message
+    );
+
+    $twitter = new TwitterAPIExchange($settings);
+
+    $response = $twitter->buildOauth($url, $requestMethod)
+                       ->setPostfields($postfields)
+                       ->performRequest();
+}
 ?>
