@@ -4,11 +4,12 @@
             <meta charset="utf-8" />
             <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="style.css" />
-            <title>Hack::Ardennes - GIT GAME</title>
+            <title>Hack::Ardennes - The Git Race</title>
         </head>
         <body>
             <?php
                 include("gitracelib.php");
+                include("config.php");
 
                 $prod = true;
                 $branch = "master";
@@ -16,9 +17,6 @@
                 $currentdatetime = date("YmdHis");
 
                 $team = getTeamFromFile("team.csv");
-
-                $username = "Nekrofage";
-                $password = "";
 
                 // Production
                 if($prod == true) {
