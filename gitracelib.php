@@ -71,13 +71,13 @@ function sortArrayByName($array) {
     Get the commit number by username, repository and branch
 */
 
-function getGithubCommit($username, $password, $repository, $branch) {
+function getGithubCommit($usernameOrToken, $password, $repository, $branch) {
     require_once 'vendor/autoload.php';
 
     $client = new \Github\Client();
     $client->authenticate($usernameOrToken, $password, Github\Client::AUTH_HTTP_PASSWORD);
 
-    $commits = $client->api('repo')->commits()->all($username, $repository, array('sha' => $branch));
+    $commits = $client->api('repo')->commits()->all($usernameOrToken, $repository, array('sha' => $branch));
 
     return count($commits);
 }
@@ -87,9 +87,9 @@ function getGithubCommit($username, $password, $repository, $branch) {
     Display commit number for each team
 */
 
-function displayCommitTeam($username, $branch, $team) {
+function displayCommitTeam($username, $password, $branch, $team) {
     foreach ($team as $member) {
-        echo $member['name'] . " " . $member['project'] . " " . getGithubCommit($username, $member['project'], $branch) . "\n";
+        echo $member['name'] . " " . $member['project'] . " " . getGithubCommit($username, $password, $member['project'], $branch) . "\n";
         echo "--------------------\n";
     }
  
@@ -100,11 +100,11 @@ function displayCommitTeam($username, $branch, $team) {
     Set commit number from the Github into team array
 */
 
-function setCommitTeamFromGithub($username, $branch, $team) {
+function setCommitTeamFromGithub($username, $password, $team, $branch) {
     $teamTmp = array();
 
     foreach ($team as $member) {
-        $commit = getGithubCommit($username, $member['project'], $branch);
+        $commit = getGithubCommit($username, $password, $member['project'], $branch);
         
         $memberTmp = array (
                 "name" => $member['name'],
@@ -140,7 +140,7 @@ function findMinMaxCommit($team) {
     Get commit statistic
 */
 
-function getCommitStat($username, $password, $team) {
+function getCommitStat($usernameOrToken, $password, $team) {
     require_once 'vendor/autoload.php';
 
     $client = new \Github\Client();
@@ -154,7 +154,7 @@ function getCommitStat($username, $password, $team) {
     $commitDay = 0;
 
     foreach ($team as $member) {
-        $commits = $client->api('repo')->commits()->all($username, $member['project'], array('sha' => "master"));
+        $commits = $client->api('repo')->commits()->all($usernameOrToken, $member['project'], array('sha' => "master"));
         foreach($commits as $commit) {
             // Hour
             $commitArr[intval(substr($commit["commit"]["committer"]["date"], 11, 2))] += 1;

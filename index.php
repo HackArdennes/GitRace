@@ -9,15 +9,19 @@
         <body>
             <?php
                 include("gitracelib.php");
+
+                $prod = true;
+                $branch = "master";
+
                 $team = createTeamFromCSV("team.csv");
 
                 $username = "Nekrofage";
-                $password = "mot2passe";
+                $password = "";
                 $today = date("Y-m-d");
 
-                // Uncomment the following line for production
-                //list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $password, $team);
-
+                // Production
+                if($prod == true)
+                    list($commitAll, $commitDay, $commitTeam, $commitHour) = getCommitStat($username, $password, $team);
             ?>
             <header>
                 <div class="gg-logo"></div>
@@ -51,8 +55,9 @@
             </section>
             <section class="gg-race">
                 <?php
-                    // Uncomment the following line for production
-                    //$team = setCommitTeamFromGithub($username, $password, $team);
+                    // Production
+                    if($prod == true)
+                        $team = setCommitTeamFromGithub($username, $password, $team, $branch);
                     
                     list($min, $max) = findMinMaxCommit($team);
 
