@@ -95,6 +95,13 @@ body {
     background-size: 150px 60px;
 }
 
+.gg-twitter {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    margin-top: 30px;
+}
+
 .gg-title {
     margin: 0 auto;
     height: 120px; width: 464px;

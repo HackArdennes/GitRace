@@ -58,6 +58,14 @@
                     </p>
                 </div>
             </section>
+            <section>
+                <div class="gg-twitter">
+                    <p>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thegitrace.hackardennes.com/" data-text="Course aux commits au #hackathon @CabaretVert ! @github #HackCV17 #DD #OSS" data-via="HackArdennes" data-lang="fr" data-size="large">Tweeter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </p>
+                </div>
+            </section>
             <section class="gg-race">
                 <?php
                     // Production
@@ -89,7 +97,7 @@
                 <?php
                     }  
                     $message = "#Hackardennes #Hackathon2018 #CabaretVert #GitRace";
-                    sendTweet($message);
+                    //sendTweet($message);
                 ?>
             </section>
             <!--<section class="gg-mountain"></section>-->
