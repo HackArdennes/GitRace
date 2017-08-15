@@ -94,7 +94,6 @@
 
                     list($min, $max) = findMinMaxCommit($team);
 
-
                     foreach ($team as $member) {
                         $length = $member['commit'] / $max * 100;
                 ?>
@@ -108,7 +107,17 @@
                     </div>
                 <?php
                     }  
-                    $message = "#Hackardennes #Hackathon2018 #CabaretVert #GitRace";
+
+                    // Generate a specific tweet message
+                    $team = sortArrayByCommit($team);
+
+                    if($team[4]['commit'] == $team[5]['commit']) {
+                        $message  = "Team " . $team[5]['name'] . " et " . $team[5]['name'] . " sont à égalité!";
+                    } else {
+                        $message  = "La team " . $team[5]['name'] . " pris le devant de la course";
+                    }
+
+                    $message .= "#Hackardennes #HackCV17 #CabaretVert #GitRace";
                     //sendTweet($message);
                 ?>
             </section>
