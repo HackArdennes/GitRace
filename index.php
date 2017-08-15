@@ -5,6 +5,7 @@
             <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="style.css" />
             <title>Hack::Ardennes - The Git Race</title>
+             <meta http-equiv="refresh" content="60; URL=http://localhost/GitGame/">
         </head>
         <body>
             <div id="fb-root"></div>
