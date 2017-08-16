@@ -111,9 +111,9 @@
                     $team = sortArrayByCommit($team);
 
                     if($team[4]['commit'] == $team[5]['commit']) {
-                        $message  = "Team " . $team[5]['name'] . " et " . $team[5]['name'] . " sont à égalité!";
+                        $message  = "Les teams " . $team[5]['name'] . " et " . $team[5]['name'] . " sont à égalité !";
                     } else {
-                        $message  = "La team " . $team[5]['name'] . " pris le devant de la course";
+                        $message  = "La team " . $team[5]['name'] . " prend la tête de la course !";
                     }
 
                     $message .= "#Hackardennes #HackCV17 #CabaretVert #GitRace";
