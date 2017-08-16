@@ -213,3 +213,58 @@ body {
 	font-size: 12px;
 	font-weight: 400;
 }
+
+@media(max-height: 600px) {
+	.gg-logo {
+		height: 30px; width: 75px;
+		background-size: 75px 30px;
+	}
+	
+	.gg-title {
+		height: 83px; width: 320px;
+		background-size: 320px 83px;
+	}
+	
+	.gg-social {
+		margin-top: 20px;
+	}
+	
+	.gg-racer {
+		margin-bottom: 40px;
+	}
+	
+	.gg-racer-info {
+		height: 40px;
+	}
+	
+	.gg-racer-info > p {
+		font-size: 12px;
+	}
+}
+
+@media(max-width: 640px) {
+	.gg-title {
+		height: 60px; width: 232px;
+		background-size: 232px 60px;
+	}
+	
+	.gg-statistics {
+		width: 80%;
+		margin: 0 auto;
+		justify-content: space-around;
+	}
+	
+	.gg-stat {
+		margin: 0 0 20px 0; padding: 10px;
+	}
+	
+	.gg-social {
+		margin-top: 0;
+		margin-bottom: 30px;
+	}
+	
+	.gg-race {
+		position: inherit;
+		transform: translateX(-25%);
+	}
+}
