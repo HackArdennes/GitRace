@@ -2,10 +2,11 @@
     <html>
         <head>
             <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width">
             <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="style.css" />
             <title>Hack::Ardennes - The Git Race</title>
-            <meta http-equiv="refresh" content="60; URL=http://localhost/GitGame/">
+            <meta http-equiv="refresh" content="60; URL=http://192.168.1.10/GitGame/">
         </head>
         <body>
             <div id="fb-root"></div>

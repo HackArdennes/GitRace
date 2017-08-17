@@ -214,7 +214,7 @@ body {
 	font-weight: 400;
 }
 
-@media(max-height: 600px) {
+@media(max-height: 700px) {
 	.gg-logo {
 		height: 30px; width: 75px;
 		background-size: 75px 30px;
@@ -242,7 +242,7 @@ body {
 	}
 }
 
-@media(max-width: 640px) {
+@media (max-width: 640px) {
 	.gg-title {
 		height: 60px; width: 232px;
 		background-size: 232px 60px;
@@ -266,5 +266,23 @@ body {
 	.gg-race {
 		position: inherit;
 		transform: translateX(-25%);
+	}
+}
+
+@media (max-height: 600px) and (min-width: 600px) {
+	.gg-social {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+}
+
+@media (max-height: 480px) and (min-width: 640px) {
+	.gg-statistics {
+		display: none;
+	}
+	
+	.gg-race {
+		position: absolute;
 	}
 }
