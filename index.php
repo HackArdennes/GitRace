@@ -6,6 +6,8 @@
             <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="style.css" />
             <title>Hack::Ardennes - The Git Race</title>
+            <link rel="icon" type="image/x-icon" href="favicon.ico" />
+            <link rel="icon" type="image/png" href="favicon.png" />
             <meta http-equiv="refresh" content="60; URL=http://localhost/GitGame/">
         </head>
         <body>
