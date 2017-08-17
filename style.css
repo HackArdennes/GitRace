@@ -269,7 +269,7 @@ body {
 	}
 }
 
-@media (max-height: 600px) and (min-width: 600px) {
+@media (max-height: 600px) and (min-width: 800px) {
 	.gg-social {
 		position: absolute;
 		top: 10px;
