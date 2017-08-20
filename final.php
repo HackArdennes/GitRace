@@ -80,89 +80,90 @@
                 </p>
             </section>
             <section class="gg-podium">
+                <?php
+                    // Production
+                    if($prod == true) {
+                        if ($currentdatetime < $deadline) {
+                            $team = getCommitTeamFromGithub($username, $password, $team, $branch);
+                            setCommitTeamToFile($team);
+                        } else {
+                            $team = getTeamFromFile();
+                        }
+                    }
+
+                    $team = sortArrayByCommitDesc($team);
+                    $team2 = array_slice($team, 1, 1);
+
+                    foreach ($team2 as $member) {
+                ?>
                 <div class="gg-podium-column">
                     <div class="gg-team">
-                        <div class="gg-team-score" style="background-color: #1a612f;">
-                            <p><span>78</span><br />commits</p>
+                        <div class="gg-team-score" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                            <p><span><?= $member['commit']; ?></span><br />commits</p>
                         </div>
-                        <div class="gg-team-name" style="background-color: #1a612f;">
-                            <p>Team #6</p>
+                        <div class="gg-team-name" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                            <p><?= $member['name']; ?></p>
                         </div>
                     </div>
                     <div class="gg-podium-step"></div>
                 </div>
+                <?php
+                    }
+                    
+                    $team = sortArrayByCommitDesc($team);
+                    $team1 = array_slice($team, 0, 1);
+
+                    foreach ($team1 as $member) {
+                ?>
                 <div class="gg-podium-column">
                     <div class="gg-team">
-                        <div class="gg-team-score" style="background-color: #1a612f;">
-                            <p><span>92</span><br />commits</p>
+                        <div class="gg-team-score" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                            <p><span><?= $member['commit']; ?></span><br />commits</p>
                         </div>
-                        <div class="gg-team-name" style="background-color: #1a612f;">
-                            <p>Team #4</p>
+                        <div class="gg-team-name" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                            <p><?= $member['name']; ?></p>
                         </div>
                     </div>
                     <div class="gg-podium-step"></div>
                 </div>
+                <?php
+                    }
+                    
+                    $team = sortArrayByCommitDesc($team);
+                    $team3 = array_slice($team, 2, 1);
+
+                    foreach ($team3 as $member) {
+                ?>
                 <div class="gg-podium-column">
                     <div class="gg-team">
-                        <div class="gg-team-score" style="background-color: #239a3b;">
-                            <p><span>64</span><br />commits</p>
+                        <div class="gg-team-score" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                            <p><span><?= $member['commit']; ?></span><br />commits</p>
                         </div>
-                        <div class="gg-team-name" style="background-color: #239a3b;">
-                            <p>Team #1</p>
+                        <div class="gg-team-name" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                            <p><?= $member['name']; ?></p>
                         </div>
                     </div>
                     <div class="gg-podium-step"></div>
                 </div>
+                <?php
+                    }
+                ?>
             </section>
             <section class="gg-ranking">
+                <?php
+                    foreach ($team as $member) {
+                ?>
                 <div class="gg-team">
-                    <div class="gg-team-score" style="background-color: #1a612f;">
-                        <p><span>78</span><br />commits</p>
+                    <div class="gg-team-score" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                        <p><span><?= $member['commit']; ?></span><br />commits</p>
                     </div>
-                    <div class="gg-team-name" style="background-color: #1a612f;">
-                        <p>Team #6</p>
+                    <div class="gg-team-name" style="background-color: <?= getCommitColor($member['commit']); ?>">
+                        <p><?= $member['name']; ?></p>
                     </div>
                 </div>
-                <div class="gg-team">
-                    <div class="gg-team-score" style="background-color: #1a612f;">
-                        <p><span>92</span><br />commits</p>
-                    </div>
-                    <div class="gg-team-name" style="background-color: #1a612f;">
-                        <p>Team #4</p>
-                    </div>
-                </div>
-                <div class="gg-team">
-                    <div class="gg-team-score" style="background-color: #239a3b;">
-                        <p><span>64</span><br />commits</p>
-                    </div>
-                    <div class="gg-team-name" style="background-color: #239a3b;">
-                        <p>Team #1</p>
-                    </div>
-                </div>
-                <div class="gg-team">
-                    <div class="gg-team-score" style="background-color: #239a3b;">
-                        <p><span>54</span><br />commits</p>
-                    </div>
-                    <div class="gg-team-name" style="background-color: #239a3b;">
-                        <p>Team #5</p>
-                    </div>
-                </div>
-                <div class="gg-team">
-                    <div class="gg-team-score" style="background-color: #7bc96f;">
-                        <p><span>42</span><br />commits</p>
-                    </div>
-                    <div class="gg-team-name" style="background-color: #7bc96f;">
-                        <p>Team #2</p>
-                    </div>
-                </div>
-                <div class="gg-team">
-                    <div class="gg-team-score" style="background-color: #c6e48b;">
-                        <p><span>36</span><br />commits</p>
-                    </div>
-                    <div class="gg-team-name" style="background-color: #c6e48b;">
-                        <p>Team #3</p>
-                    </div>
-                </div>
+                <?php
+                    }
+                ?>
             </section>
         </body>
     </html>

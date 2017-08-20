@@ -293,6 +293,7 @@ body {
 	font-size: 22px;
 	color: #FFFFFF;
 	text-align: center;
+	text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
 }
 
 .gg-team-score > p > span {
@@ -312,10 +313,11 @@ body {
 	height: inherit;
 	line-height: 50px;
 	font-family: "open_sansbold", sans-serif;
-	font-size: 24px;
+	font-size: 18px;
 	color: #FFFFFF;
 	text-align: center;
 	text-transform: uppercase;
+	text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
 }
 
 .gg-ranking {
@@ -339,6 +341,30 @@ body {
 .gg-ranking > .gg-team:nth-child(2) {display: none;}
 .gg-ranking > .gg-team:nth-child(3) {display: none;}
 
+.gg-ranking > .gg-team-name {
+	position: relative;
+}
+
+.gg-ranking > .gg-team > .gg-team-name::before {
+	position: absolute;
+	top: -15px; left: 10px;
+	height: 30px; width: 30px;
+	border-radius: 50%;
+	font-family: "open_sansbold", sans-serif;
+	font-size: 20px;
+	line-height: 30px;
+	color: #333333;
+	background-color: #EEEEEE;
+	text-align: center;
+	text-shadow: -1px -1px 1px rgba(0,0,0,0.2);
+}
+
+.gg-ranking > .gg-team:nth-child(1) > .gg-team-name::before {content: "1"; background-color: #EDF807; color: #FFFFFF;}
+.gg-ranking > .gg-team:nth-child(2) > .gg-team-name::before {content: "2"; background-color: #CECECE; color: #FFFFFF;}
+.gg-ranking > .gg-team:nth-child(3) > .gg-team-name::before {content: "3"; background-color: #614E1A; color: #FFFFFF;}
+.gg-ranking > .gg-team:nth-child(4) > .gg-team-name::before {content: "4";}
+.gg-ranking > .gg-team:nth-child(5) > .gg-team-name::before {content: "5";}
+.gg-ranking > .gg-team:nth-child(6) > .gg-team-name::before {content: "6";}
 
 @media(max-height: 700px) {
 	.gg-logo {

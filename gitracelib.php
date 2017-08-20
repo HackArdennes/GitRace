@@ -54,6 +54,20 @@ function sortArrayByCommit($array) {
         return $array;
 }
 
+/*
+    Sort the team array by commit number desc
+*/
+function sortArrayByCommitDesc($array) {
+    foreach ($array as $key => $row) {
+        $commit[$key]  = $row['commit'];
+        $name[$key] = $row['name'];
+    }
+    
+    array_multisort($commit, SORT_DESC, $name, SORT_ASC, $array);
+    
+    return $array;
+}
+
 
 /*
     Sort the team array by name team
@@ -251,5 +265,24 @@ function sendTweet($message) {
     $response = $twitter->buildOauth($url, $requestMethod)
                        ->setPostfields($postfields)
                        ->performRequest();
+}
+
+/*
+ * Get the background color by commit number
+ */
+function getCommitColor($commit) {
+    if($commit >= 0 && $commit < 10) {
+        $color = "#EEEEEE;";
+    }elseif($commit >= 10 && $commit < 30) {
+        $color = "#C6E48B;";
+    }elseif($commit >= 30 && $commit < 50) {
+        $color = "#7BC96F;";
+    }elseif($commit >= 50 && $commit < 80) {
+        $color = "#239A3B;";
+    }elseif($commit >= 80) {
+        $color = "#19612F;";
+    }
+    
+    return $color;
 }
 ?>
