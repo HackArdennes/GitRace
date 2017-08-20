@@ -393,6 +393,20 @@ body {
 		position: inherit;
 		transform: translateX(-25%);
 	}
+	
+	.gg-podium {
+		display: none;
+	}
+	
+	.gg-ranking > .gg-team:nth-child(1) {display: block;}
+	.gg-ranking > .gg-team:nth-child(2) {display: block;}
+	.gg-ranking > .gg-team:nth-child(3) {display: block;}
+}
+
+@media (max-width: 360px) {
+	.gg-ranking {
+		width: 320px;
+	}
 }
 
 @media (max-height: 600px) and (min-width: 800px) {
