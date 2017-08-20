@@ -214,6 +214,132 @@ body {
 	font-weight: 400;
 }
 
+.gg-podium {
+	margin: 0 auto;
+	width: 600px;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+}
+
+.gg-podium-column {
+	height: 100%;
+	position: relative;
+	width: 200px;
+}
+
+.gg-podium-step {
+	position: absolute;
+	bottom: 0; left: 0; right: 0;
+	background-color: #F2F2F2;
+	font-family: "open_sansbold", sans-serif;
+	font-size: 48px;
+	color: #BFBFBF;
+	text-align: center;
+	text-shadow: -1px -1px 1px rgba(0,0,0,0.6);
+}
+
+.gg-podium-column:nth-child(1) > .gg-podium-step {height: 100px;}
+.gg-podium-column:nth-child(2) > .gg-podium-step {height: 150px;}
+.gg-podium-column:nth-child(3) > .gg-podium-step {height: 50px;}
+
+.gg-podium-step::after {
+	content: "";
+	position: absolute;
+	top: 5px; left: 5px;
+	height: inherit;
+	width: 190px;
+	background: linear-gradient(rgba(191,191,191,0.6), rgba(191,191,191,0));
+}
+
+.gg-podium-column:nth-child(1) > .gg-podium-step::before {content: "2"; font-size: 64px; line-height: 100px;}
+.gg-podium-column:nth-child(2) > .gg-podium-step::before {content: "1"; font-size: 78px; line-height: 150px;}
+.gg-podium-column:nth-child(3) > .gg-podium-step::before {content: "3"; font-size: 36px; line-height: 50px;}
+
+.gg-team {
+	position: absolute;
+	left: 10px;
+	height: 200px;
+	width: 180px;
+}
+
+.gg-podium-column:nth-child(1) > .gg-team {bottom: 110px;}
+.gg-podium-column:nth-child(2) > .gg-team {bottom: 160px;}
+.gg-podium-column:nth-child(3) > .gg-team {bottom: 60px;}
+
+.gg-team-score {
+	position: absolute;
+	top: 0; left: 0;
+	width: inherit;
+	height: 180px;
+	border-radius: 50%;
+}
+
+.gg-team-score::after {
+	content: "";
+	position: absolute;
+	top: 5px; left: 5px;
+	height: 170px;
+	width: 170px;
+	border-radius: 50%;
+	background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0));
+}
+
+.gg-team-score > p {
+	margin: 60px 0 0 0;
+	padding: 0;
+	line-height: 1em;
+	font-family: "open_sansbold", sans-serif;
+	font-size: 22px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.gg-team-score > p > span {
+	font-size: 64px;
+}
+
+.gg-team-name {
+	position: absolute;
+	bottom: 0; left: 0;
+	height: 50px;
+	width: inherit;
+}
+
+.gg-team-name > p {
+	margin: 0;
+	padding: 0;
+	height: inherit;
+	line-height: 50px;
+	font-family: "open_sansbold", sans-serif;
+	font-size: 24px;
+	color: #FFFFFF;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.gg-ranking {
+	margin: 0 auto;
+	padding: 50px 0;
+	width: 600px;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.gg-ranking > .gg-team {
+	position: relative;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 50px;
+}
+
+.gg-ranking > .gg-team:nth-child(1) {display: none;}
+.gg-ranking > .gg-team:nth-child(2) {display: none;}
+.gg-ranking > .gg-team:nth-child(3) {display: none;}
+
+
 @media(max-height: 700px) {
 	.gg-logo {
 		height: 30px; width: 75px;
