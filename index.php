@@ -8,7 +8,7 @@
             <title>Hack::Ardennes - The Git Race</title>
             <link rel="icon" type="image/x-icon" href="favicon.ico" />
             <link rel="icon" type="image/png" href="favicon.png" />
-            <meta http-equiv="refresh" content="60; URL=http://localhost/GitGame/">
+            <meta http-equiv="refresh" content="60; URL=https://thegitrace.hackardennes.com/">
         </head>
         <body>
             <div id="fb-root"></div>
@@ -23,7 +23,7 @@
             </script>
             <?php
                 include("gitracelib.php");
-                //include("config.php");
+                include("config.php");
 
                 $prod = false;
                 $branch = "master";
