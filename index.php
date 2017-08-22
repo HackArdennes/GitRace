@@ -25,7 +25,7 @@
                 include("gitracelib.php");
                 include("config.php");
 
-                $prod = false;
+                $prod = true;
                 $branch = "master";
                 $deadline = "20170827170000";
                 $currentdatetime = date("YmdHis");
