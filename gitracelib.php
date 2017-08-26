@@ -91,8 +91,12 @@ function getGithubCommit($usernameOrToken, $password, $repository, $branch) {
 
     $client = new \Github\Client();
     $client->authenticate($usernameOrToken, $password, Github\Client::AUTH_HTTP_PASSWORD);
-
-    $commits = $client->api('repo')->commits()->all($usernameOrToken, $repository, array('sha' => $branch));
+    
+    $commitsApi = $client->repo()->commits();
+    
+    $paginator  = new Github\ResultPager($client);
+    $parameters = array($usernameOrToken, $repository, array('sha' => $branch));
+    $commits     = $paginator->fetchAll($commitsApi, 'all', $parameters);
 
     return count($commits);
 }
@@ -182,7 +186,12 @@ function getCommitStatFromGithub($usernameOrToken, $password, $team) {
     $commitDay = 0;
 
     foreach ($team as $member) {
-        $commits = $client->api('repo')->commits()->all($usernameOrToken, $member['project'], array('sha' => "master"));
+        $commitsApi = $client->repo()->commits();
+    
+        $paginator  = new Github\ResultPager($client);
+        $parameters = array($usernameOrToken, $member['project'], array('sha' => "master"));
+        $commits     = $paginator->fetchAll($commitsApi, 'all', $parameters);
+    
         foreach($commits as $commit) {
             // Hour
             $commitArr[intval(substr($commit["commit"]["committer"]["date"], 11, 2))] += 1;
